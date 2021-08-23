@@ -15,4 +15,13 @@ void main(List<String> arguments) {
     print("digite seu salary:"); salary = double.parse(stdin.readLineSync());
     print("Meu nome é $name, tenho $age anos e meu salário é $salary");
   }
+  {
+    // dynamic type with var
+    print('with dynamic type using var keyword');
+    var name; var age; var salary;
+    print("digite seu nome:"); name = stdin.readLineSync();
+    print("digite sua age:"); age = int.parse(stdin.readLineSync());
+    print("digite seu salary:"); salary = double.parse(stdin.readLineSync());
+    print("Meu nome é $name, tenho $age anos e meu salário é $salary");
+  }
 }
