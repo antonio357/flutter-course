@@ -3,7 +3,6 @@
 // using {} brakets do denife variables in local scopes
 
 import 'dart:io';
-import 'package:first_class/first_class.dart' as first_class;
 
 void main(List<String> arguments) {
   {
