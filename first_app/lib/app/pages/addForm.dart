@@ -9,7 +9,20 @@ class AddForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Add a new a contact'))
+      appBar: AppBar(title: Text('Add a new a contact')),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text('You have typed times\n\n'),
+          TextField(
+            obscureText: true,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'type in here',
+            ),
+          )
+        ]
+      ),
     );
   }
 }
