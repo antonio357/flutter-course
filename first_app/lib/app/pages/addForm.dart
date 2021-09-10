@@ -11,9 +11,21 @@ class AddForm extends StatefulWidget {
 }
 
 class _AddFormState extends State<AddForm> {
-  int _typeCounter = 0;
 
-  void _count() => setState(() => _typeCounter++);
+  final textController = TextEditingController();
+  @override
+  void dispose() {
+    textController.dispose();
+    super.dispose();
+  }
+  @override
+  void initState() {
+    super.initState();
+    textController.addListener(getTextLenght);
+  }
+
+  int _textLenght = 0;
+  void getTextLenght() => setState(() => _textLenght = textController.text.length);
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +34,13 @@ class _AddFormState extends State<AddForm> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text('You have typed $_typeCounter times\n\n'),
+          Text('Your text has $_textLenght characters\n\n'),
           TextField(
-            obscureText: true,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               labelText: 'type in here',
             ),
-            onChanged: (str) => _count(),
+            controller: textController,
           )
         ]
       ),
