@@ -26,7 +26,12 @@ class List extends StatelessWidget {
         itemCount: contacts.length,
         itemBuilder: (context, index){
           var contact = contacts[index];
-          return Text(contact['name']);
+          var image = CircleAvatar(backgroundImage: NetworkImage(contact['image']));
+          return ListTile(
+            leading: image,
+            title: Text(contact['name']),
+            subtitle: Text(contact['number']),
+          );
         },
       ),
     );
