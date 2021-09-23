@@ -4,13 +4,17 @@ import 'package:first_app/app/routes.dart';
 
 
 class List extends StatelessWidget {
-  const List({ Key? key }) : super(key: key);
+  final contacts = [
+    {'name': 'man 1', 'number': '(11) 9 1234-5678', 'image': 'https://media.istockphoto.com/vectors/portrait-face-manga-anime-male-red-hair-eyes-expression-vector-id844139746?s=612x612'},
+    {'name': 'woman 1', 'number': '(11) 9 1234-5678', 'image': 'https://media.istockphoto.com/vectors/anime-schoolgirl-cartoon-character-in-japanese-classical-style-manga-vector-id844012000?s=612x612'},
+    {'name': 'woman 2', 'number': '(11) 9 1234-5678', 'image': 'https://media.istockphoto.com/photos/digital-3d-illustration-of-a-toon-girl-picture-id942739646?s=612x612'}
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Contacts'),
+        title: Text('Contact'),
         actions: [
           IconButton(
             icon: Icon(Icons.add),
@@ -18,7 +22,13 @@ class List extends StatelessWidget {
           )
         ],
       ),
-      body: ListView(),
+      body: ListView.builder(
+        itemCount: contacts.length,
+        itemBuilder: (context, index){
+          var contact = contacts[index];
+          return Text(contact['name']);
+        },
+      ),
     );
   }
 }
