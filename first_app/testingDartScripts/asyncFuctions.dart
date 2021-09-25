@@ -1,5 +1,5 @@
-void main() {
-  asyncLoadData();
+void main() async {
+  await asyncLoadData();
   print('buttons'); print('fileds'); print('images');
 }
 
